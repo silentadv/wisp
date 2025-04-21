@@ -2,14 +2,14 @@ package internals
 
 import (
 	"fmt"
-	"net"
 	"github.com/silentadv/wisp/protocol"
+	"net"
 )
 
 func StartDaemon(address string) error {
 	listener, err := net.Listen("tcp", address)
 	if err != nil {
-		return fmt.Errorf("wisp (error) -> failed to start daemon: %w", err)
+		return fmt.Errorf("wisp (error) -> failed to start daemon: %w\n", err)
 	}
 
 	fmt.Println("wisp -> daemon started, waiting for connections...")
@@ -44,3 +44,4 @@ func handleConnection(conn net.Conn) {
 
 	fmt.Printf("wisp -> received message: %s\n", msg)
 }
+
